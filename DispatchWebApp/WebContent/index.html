@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Utica Police Department Dispatch Application</title>
+        <link rel="stylesheet" href="style.css" media="screen">
+        <link rel="stylesheet" href="./css/jquery-ui-1.10.4.css" media="screen">
+        <link rel="stylesheet" href="./css/jquery.multiselect.css">
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dijit/themes/claro/claro.css" media="screen">
+        <script src="./js/jquery1.11.js"></script>
+        <script src="./js/jquery-ui-1.10.4.min.js"></script>
+        <script src="./js/jquery.multiselect.js"></script>
+    </head>
+    <body class="claro">
+        <div
+            id="appLayout" class="demoLayout"
+            data-dojo-type="dijit/layout/BorderContainer"
+            data-dojo-props="design: 'headline'">
+            <div class="centerPanel"
+                data-dojo-type="dijit/layout/TabContainer"
+                data-dojo-props="region: 'center', tabPosition: 'top'">
+                <div
+                    data-dojo-type="dijit/layout/ContentPane"
+                    data-dojo-props="title: 'Call Record #1'">
+                    <h4>Call Record #1</h4>
+                    <form class="call_record">
+                        <div class="form_section">
+                            <label for="time_received">Time of Call: </label>
+                            <input id="time_received" type="text" value="">
+                        </div>
+                        <div class="form_section" id="caller_info">
+                            Caller Information:<br>
+                            <label for="caller_first_name">First Name: </label>
+                            <input id="caller_first_name" type="text" value="">
+                            <label for="caller_last_name">Last Name: </label>
+                            <input id="caller_last_name" type="text" value="">
+                            <label for="caller_phone">Phone: </label>
+                            <input id="caller_phone" type="text" value="">
+                        </div>
+                        <div class="form_section" id="incident_info">
+                            Incident Information:<br>
+                            <label for="received_by">Received By: </label>
+                            <select>
+                                <option value="1">Phone</option>
+                                <option value="2">Radio</option>
+                                <option value="3">In-Person</option>
+                            </select>
+                            <label for="incident_type">Complaint Type:</label>
+                            <input id="incident_type" type="text" value="">
+                            <label for="incident_location">Location:</label>
+                            <input id="incident_location" type="text" value="">
+                            <label for="is_incident">Generate Incident Number?</label>
+                            <input id="incident_type" type="checkbox" value="">
+                        </div>
+                        <div class="form_section" id="response_info">
+                            Response Information:<br>
+                            <label for="officers_assigned">Officers Assigned:</label>
+                            <select multiple class="officers">
+								<option value="1">A - Bigler</option>
+								<option value="2">C - Kofod</option>
+								<option value="3">3 - Marietta</option>
+								<option value="4">10 - Cox</option>
+								<option value="5">20 - Clayton</option>
+							</select>
+							<label for="time_dispatched">Time Dispatched: </label>
+							<input id="time_dispatched" type="text" value="">
+							<label for="time_arrived">Time Arrived: </label>
+                            <input id="time_arrived" type="text" value="">
+                            <label for="time_cleared">Time Cleared: </label>
+                            <input id="time_cleared" type="text" value="">
+                            <label for="result">Result: </label>
+                            <select>
+                                <option value="1">No Report</option>
+                                <option value="2">Report Taken</option>
+                                <option value="3">Arrest Made</option>
+                            </select>
+                        </div>
+                        <div class="form_section" id="incident_notes">
+                            <label for="notes">Notes:</label><br>
+                            <textarea rows="5" cols="100"></textarea>
+                        </div>
+                        <button id="save_record">Save Record</button>
+                    </form>
+                </div>
+                <div
+                    data-dojo-type="dijit/layout/ContentPane"
+                    data-dojo-props="title: 'Call Record #2'">
+                    <h4>Call Record #2</h4>
+                    <form class="call_record">
+                        <div class="form_section">
+                            <label for="time_received">Time of Call: </label>
+                            <input id="time_received" type="text" value="">
+                        </div>
+                        <div class="form_section" id="caller_info">
+                            Caller Information:<br>
+                            <label for="caller_first_name">First Name: </label>
+                            <input id="caller_first_name" type="text" value="">
+                            <label for="caller_last_name">Last Name: </label>
+                            <input id="caller_last_name" type="text" value="">
+                            <label for="caller_phone">Phone: </label>
+                            <input id="caller_phone" type="text" value="">
+                        </div>
+                        <div class="form_section" id="incident_info">
+                            Incident Information:<br>
+                            <label for="received_by">Received By: </label>
+                            <select>
+                                <option value="1">Phone</option>
+                                <option value="2">Radio</option>
+                                <option value="3">In-Person</option>
+                            </select>
+                            <label for="incident_type">Complaint Type:</label>
+                            <input id="incident_type" type="text" value="">
+                            <label for="incident_location">Location:</label>
+                            <input id="incident_location" type="text" value="">
+                            <label for="is_incident">Generate Incident Number?</label>
+                            <input id="incident_type" type="checkbox" value="">
+                        </div>
+                        <div class="form_section" id="response_info">
+                            Response Information:<br>
+                            <label for="officers_assigned">Officers Assigned:</label>
+                            <select multiple class="officers">
+                                <option value="1">A - Bigler</option>
+                                <option value="2">C - Kofod</option>
+                                <option value="3">3 - Marietta</option>
+                                <option value="4">10 - Cox</option>
+                                <option value="5">20 - Clayton</option>
+                            </select>
+                            <label for="time_dispatched">Time Dispatched: </label>
+                            <input id="time_dispatched" type="text" value="">
+                            <label for="time_arrived">Time Arrived: </label>
+                            <input id="time_arrived" type="text" value="">
+                            <label for="time_cleared">Time Cleared: </label>
+                            <input id="time_cleared" type="text" value="">
+                            <label for="result">Result: </label>
+                            <select>
+                                <option value="1">No Report</option>
+                                <option value="2">Report Taken</option>
+                                <option value="3">Arrest Made</option>
+                            </select>
+                        </div>
+                        <div class="form_section" id="incident_notes">
+                            <label for="notes">Notes:</label><br>
+                            <textarea rows="5" cols="100"></textarea>
+                        </div>
+                        <button id="save_record">Save Record</button>
+                    </form>
+                </div>
+                <div
+                    data-dojo-type="dijit/layout/ContentPane"
+                    data-dojo-props="title: 'Call Record #3'">
+                    <h4>Call Record #3</h4>
+                    <form class="call_record">
+                        <div class="form_section">
+                            <label for="time_received">Time of Call: </label>
+                            <input id="time_received" type="text" value="">
+                        </div>
+                        <div class="form_section" id="caller_info">
+                            Caller Information:<br>
+                            <label for="caller_first_name">First Name: </label>
+                            <input id="caller_first_name" type="text" value="">
+                            <label for="caller_last_name">Last Name: </label>
+                            <input id="caller_last_name" type="text" value="">
+                            <label for="caller_phone">Phone: </label>
+                            <input id="caller_phone" type="text" value="">
+                        </div>
+                        <div class="form_section" id="incident_info">
+                            Incident Information:<br>
+                            <label for="received_by">Received By: </label>
+                            <select>
+                                <option value="1">Phone</option>
+                                <option value="2">Radio</option>
+                                <option value="3">In-Person</option>
+                            </select>
+                            <label for="incident_type">Complaint Type:</label>
+                            <input id="incident_type" type="text" value="">
+                            <label for="incident_location">Location:</label>
+                            <input id="incident_location" type="text" value="">
+                            <label for="is_incident">Generate Incident Number?</label>
+                            <input id="incident_type" type="checkbox" value="">
+                        </div>
+                        <div class="form_section" id="response_info">
+                            Response Information:<br>
+                            <label for="officers_assigned">Officers Assigned:</label>
+                            <select multiple class="officers">
+                                <option value="1">A - Bigler</option>
+                                <option value="2">C - Kofod</option>
+                                <option value="3">3 - Marietta</option>
+                                <option value="4">10 - Cox</option>
+                                <option value="5">20 - Clayton</option>
+                            </select>
+                            <label for="time_dispatched">Time Dispatched: </label>
+                            <input id="time_dispatched" type="text" value="">
+                            <label for="time_arrived">Time Arrived: </label>
+                            <input id="time_arrived" type="text" value="">
+                            <label for="time_cleared">Time Cleared: </label>
+                            <input id="time_cleared" type="text" value="">
+                            <label for="result">Result: </label>
+                            <select>
+                                <option value="1">No Report</option>
+                                <option value="2">Report Taken</option>
+                                <option value="3">Arrest Made</option>
+                            </select>
+                        </div>
+                        <div class="form_section" id="incident_notes">
+                            <label for="notes">Notes:</label><br>
+                            <textarea rows="5" cols="100"></textarea>
+                        </div>
+                        <button id="save_record">Save Record</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="edgePanel" id="header"
+                data-dojo-type="dijit/layout/ContentPane"
+                data-dojo-props="region: 'top'">
+                <span id="head_text">Utica Police Department</span><br/>
+                <span id="head_subtext">Dispatch Log</span>
+                <div id="menu">
+                    <ul>
+                        <li><a href="index.html">Call Record</a></li>
+                        <li><a href="index.html">Documents</a></li>
+                        <li><a href="index.html">Reports</a></li>
+                        <li><a href="index.html">Pass Down</a></li>
+                        <li><a href="index.html">Logout</a></li>
+                    </ul>
+                </div>
+                </div>
+            
+        </div>
+        <script>
+        $(document).ready(function() {
+            $(".officers").multiselect({
+        	   selectedText: "# Officer(s) Assigned"
+        	});
+        });
+        </script>
+        <!-- load dojo and provide config via data attribute -->
+        <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js"
+                data-dojo-config="async: 1, parseOnLoad: 1">
+        </script>
+        <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.0/dojo/dojo.js"
+        data-dojo-config="async:true, parseOnLoad:true">
+        </script>
+        <script>
+        require(["dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/TabContainer",
+                 "dijit/layout/ContentPane"]);
+        </script>
+    </body>
+</html>

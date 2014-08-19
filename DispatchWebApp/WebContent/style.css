@@ -1,0 +1,97 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+ 
+#appLayout {
+    height: 100%;
+}
+ 
+.claro .demoLayout .edgePanel {
+    background-color: #d0e9fc;
+}
+ 
+#header {
+	text-align: center;
+	padding: 10px;
+	 
+	/* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */ 
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727)); 
+	/* Safari 5.1+, Chrome 10+ */ 
+	background: -webkit-radial-gradient(circle, #1a82f7, #2F2727); 
+	/* Firefox 3.6+ */ 
+	background: -moz-radial-gradient(circle, #1a82f7, #2F2727); 
+	/* IE 10 */ 
+	background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
+	color: #E42217;
+	text-shadow: 2px 2px #2B1B17;
+	overflow: hidden;
+}
+
+#head_text {
+	font-family: Veranda, sans-serif;
+	font-weight: bold;
+	font-size: 36pt;
+	
+}
+
+#head_subtext {
+	font-family: Veranda, sans-serif;
+	font-size: 18pt;
+}
+
+#menu {
+    margin-top: 30px;
+    height: 35px;
+    font-size: 16px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 2px 3px #333333;
+    background-color: #E42217;
+    border-radius: 8px;
+}
+
+#menu ul {
+    height: auto;
+    padding: 8px 0px;
+    margin: 0px;
+}
+
+#menu li {
+    display: inline;
+    padding: 20px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: #000000;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#menu a:hover {
+    color: #333333;
+    background-color: #FFF;
+}
+
+.form_section {
+	padding: 10px;
+	font-size: 20px;
+}
+
+
+label {
+	margin: 8px;
+}
+
+#save_record {
+	position: absolute;
+	height: 45px;
+	width: 150px;
+	right: 50px;
+}
