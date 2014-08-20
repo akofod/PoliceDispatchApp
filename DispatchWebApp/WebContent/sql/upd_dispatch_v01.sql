@@ -42,7 +42,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `upd_dispatch`.`complaint` ;
 
 CREATE TABLE IF NOT EXISTS `upd_dispatch`.`complaint` (
-  `complaint_id` INT NOT NULL,
+  `complaint_id` INT NOT NULL AUTO_INCREMENT,
   `complaint` VARCHAR(45) NOT NULL,
   `code` VARCHAR(5) NOT NULL,
   `number_occurences` INT NOT NULL,
