@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS `upd_dispatch`.`complaint` ;
 CREATE TABLE IF NOT EXISTS `upd_dispatch`.`complaint` (
   `complaint_id` INT NOT NULL,
   `complaint` VARCHAR(45) NOT NULL,
-  `code` INT NOT NULL,
+  `code` VARCHAR(5) NOT NULL,
   `number_occurences` INT NOT NULL,
   PRIMARY KEY (`complaint_id`),
   UNIQUE INDEX `complaint_id_UNIQUE` (`complaint_id` ASC))
@@ -85,15 +85,18 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `upd_dispatch`.`dispatcher` ;
 
-CREATE TABLE IF NOT EXISTS `upd_dispatch`.`dispatcher` (
-  `unit_number` VARCHAR(3) NOT NULL,
-  `first_name` VARCHAR(45) NOT NULL,
-  `last_name` VARCHAR(45) NOT NULL,
-  `phone_number` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
+CREATE TABLE `upd_dispatch`.`dispatcher` (
+  `unit_number` varchar(3) NOT NULL,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `phone_number` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `salt` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`unit_number`),
-  UNIQUE INDEX `unit_number_UNIQUE` (`unit_number` ASC))
-ENGINE = InnoDB;
+  UNIQUE KEY `unit_number_UNIQUE` (`unit_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 -- -----------------------------------------------------
@@ -272,16 +275,6 @@ CREATE TABLE IF NOT EXISTS `upd_dispatch`.`notes` (
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
-GRANT USAGE ON *.* TO dispatch_web_app;
- DROP USER dispatch_web_app;
-SET SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-CREATE USER 'dispatch_web_app' IDENTIFIED BY '$Utica975!';
-
-GRANT ALL ON `upd_dispatch`.* TO 'dispatch_web_app';
-GRANT SELECT ON TABLE `upd_dispatch`.* TO 'dispatch_web_app';
-GRANT SELECT, INSERT, TRIGGER ON TABLE `upd_dispatch`.* TO 'dispatch_web_app';
-GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `upd_dispatch`.* TO 'dispatch_web_app';
-GRANT EXECUTE ON ROUTINE `upd_dispatch`.* TO 'dispatch_web_app';
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
