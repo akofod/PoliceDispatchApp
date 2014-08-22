@@ -9,13 +9,24 @@ import java.sql.ResultSet;
 
 import model.Dispatcher;
 
-
+/**
+ * Data Access Object for the database dispatcher table.
+ * Extends the BaseDAO class.
+ * @author William Kofod
+ *
+ */
 public class DispatcherDAO extends BaseDAO {	
 	
+	/**
+	 * Adds a new dispatcher to the database.
+	 * @param dispatcher The Dispatcher to add
+	 * @return ALREADY_EXISTS(-1) if the dispatcher already exists
+	 * 		   SUCCESS(1) if the dispatcher was added successfully
+	 *         FAILURE(0) if the dispatcher was not added successfully
+	 */
 	public int addDispatcher(Dispatcher dispatcher) {
 		
 		// Check to ensure that the unit number is not already in use
-		
 		if (getDispatcher(dispatcher.getUnitNumber()) != null) {
 			return ALREADY_EXISTS;
 		}
@@ -51,6 +62,11 @@ public class DispatcherDAO extends BaseDAO {
 		}
 	}
 	
+	/**
+	 * Gets a random salt to encrypt the dispatcher's password
+	 * @return A String containing the random salt
+	 * @throws NoSuchAlgorithmException
+	 */
 	private String getSalt() throws NoSuchAlgorithmException {
 		SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
@@ -58,6 +74,14 @@ public class DispatcherDAO extends BaseDAO {
         return salt.toString();
 	}
 	
+	
+	/**
+	 * Uses the password entered by the dispatcher and the generated
+	 * salt to create an encrypted password.
+	 * @param password The password entered by the user
+	 * @param salt The random salt
+	 * @return The encrypted password to store in the database
+	 */
 	private String getSecurePassword(String password, String salt) {
 		String generatedPassword = null;
         try {
@@ -78,6 +102,11 @@ public class DispatcherDAO extends BaseDAO {
         return generatedPassword;
 	}
 
+	/**
+	 * Retrieve a Dispatcher from the database
+	 * @param unit_number The unit number of the dispatcher to be retrieved
+	 * @return The Dispatcher object, or null if the dispatcher does not exist in the database
+	 */
 	public Dispatcher getDispatcher(String unit_number) {
 		
 		Dispatcher dispatcher = null;
@@ -116,9 +145,14 @@ public class DispatcherDAO extends BaseDAO {
 			System.out.println(e);
 			return null;
 		}
-		
 	}
 	
+	/**
+	 * Update a dispatcher record in the database.
+	 * @param unitNumber The unit number of the dispatcher to be updated
+	 * @param dispatcher The Dispatcher object containing the data to update
+	 * @return SUCCESS(1) if the record is updated successfully or FAILURE(0) if the record is not updated
+	 */
 	public int updateDispatcher(String unitNumber, Dispatcher dispatcher) {
 		
 		String sql = "UPDATE upd_dispatch.dispatcher SET first_name = ?, last_name = ?,"
@@ -144,6 +178,11 @@ public class DispatcherDAO extends BaseDAO {
 		}
 	}
 	
+	/**
+	 * Delete a dispatcher from the database
+	 * @param unitNumber The unit number of the dispatcher to be deleted
+	 * @return SUCCESS(1) if the record was deleted successfully or FAILURE(0) if the record was not deleted.
+	 */
 	public int deleteDispatcher(String unitNumber) {
 		
 		String sql = "DELETE FROM upd_dispatch.dispatcher WHERE unit_number = ?";
@@ -163,8 +202,5 @@ public class DispatcherDAO extends BaseDAO {
 			e.printStackTrace();
 			return FAILURE;
 		}
-        
-		
 	}
-	
 }
