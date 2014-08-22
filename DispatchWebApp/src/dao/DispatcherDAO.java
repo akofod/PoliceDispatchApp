@@ -119,9 +119,9 @@ public class DispatcherDAO extends BaseDAO {
             ps.setString(1, unit_number);
 
             ResultSet rs = ps.executeQuery();
-            dispatcher = new Dispatcher();
 
             while (rs.next()) {
+            	dispatcher = new Dispatcher();
             	dispatcher.setUnitNumber(rs.getString("unit_number"));
             	dispatcher.setFirstName(rs.getString("first_name"));
             	dispatcher.setLastName(rs.getString("last_name"));
@@ -134,12 +134,7 @@ public class DispatcherDAO extends BaseDAO {
             ps.close();
             con.close();
             
-            if(dispatcher.getUnitNumber() == null) {
-            	return null;
-            }
-            else {
-            	return dispatcher;
-            }
+            return dispatcher;
 		}
 		catch(Exception e) {
 			System.out.println(e);

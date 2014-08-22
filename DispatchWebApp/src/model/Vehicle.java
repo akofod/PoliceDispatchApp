@@ -2,20 +2,13 @@ package model;
 
 public class Vehicle {
 
-	private int vehicleId;
 	private String licenseNumber;
-	private int owner;
+	private int owner; //index of person_id from person table
 	private String year;
 	private String make;
 	private String model;
 	private String color;
 	
-	public int getVehicleId() {
-		return vehicleId;
-	}
-	public void setVehicleId(int vehicleId) {
-		this.vehicleId = vehicleId;
-	}
 	public String getLicenseNumber() {
 		return licenseNumber;
 	}
