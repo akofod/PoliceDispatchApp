@@ -3,9 +3,9 @@ package model;
 public class TrafficStop {
 
 	private int trafficStopId;
-	private int vehicle;
-	private int operator;
-	private int callRecordId;
+	private String vehicle; //Index from vehicle table
+	private int operator; //Index from person table
+	private int callRecordId; //Index from call_record table
 	
 	public int getTrafficStopId() {
 		return trafficStopId;
@@ -13,11 +13,11 @@ public class TrafficStop {
 	public void setTrafficStopId(int trafficStopId) {
 		this.trafficStopId = trafficStopId;
 	}
-	public int getVehicle() {
+	public String getVehicle() {
 		return vehicle;
 	}
-	public void setVehicle(int vehicle) {
-		this.vehicle = vehicle;
+	public void setVehicle(String string) {
+		this.vehicle = string;
 	}
 	public int getOperator() {
 		return operator;
