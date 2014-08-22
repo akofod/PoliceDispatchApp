@@ -13,6 +13,9 @@ import javax.sql.DataSource;
  */
 public abstract class BaseDAO {
 	private DataSource ds;
+	public final int ALREADY_EXISTS = -1;
+	public final int SUCCESS = 1;
+	public final int FAILURE = 0;
 	
 	/**
 	 * Get a connection to the database.

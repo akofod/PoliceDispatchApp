@@ -15,11 +15,11 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import dao.DispatcherDAO;
 
-public class DAOConnectionTest {
+public class TestDAOConnection {
 
 	@BeforeClass
     public static void setUpClass() throws Exception {
-        // rcarver - setup the jndi context and the datasource
+        // setup the jndi context and the datasource
         try {
             // Create initial context
             System.setProperty(Context.INITIAL_CONTEXT_FACTORY,
@@ -45,6 +45,7 @@ public class DAOConnectionTest {
         }
         
     }
+	
 	@Test
 	public void testConnection() {
 		
