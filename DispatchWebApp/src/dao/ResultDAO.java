@@ -58,6 +58,35 @@ public class ResultDAO extends BaseDAO {
 		}
 	}
 	
+	public Result getResultByName(String res) {
+		Result result = null;
+		String sql = "SELECT * FROM upd_dispatch.result WHERE result = ?";
+		
+		try {
+			Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, res);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+            	result = new Result();
+            	result.setResultId(rs.getInt("result_id"));
+            	result.setResult(rs.getString("result"));
+            	result.setNumberOccurences(rs.getInt("number_occurences"));
+            }
+            rs.close();
+            ps.close();
+            con.close();
+            
+            return result;
+		}
+		catch(Exception e) {
+			System.out.println(e);
+			return null;
+		}
+	}
+	
 	public int updateResult(int resultId, Result result) {
 		
 		String sql = "UPDATE upd_dispatch.result SET result = ?, number_occurences = ? WHERE result_id = ?";
@@ -83,7 +112,7 @@ public class ResultDAO extends BaseDAO {
 	
 	public int deleteResult(int resultId) {
 		
-		String sql = "DELETE FROM upd_dispatch.vehicle WHERE license_number = ?";
+		String sql = "DELETE FROM upd_dispatch.result WHERE result_id = ?";
 
 		try {
 			Connection con = getConnection();

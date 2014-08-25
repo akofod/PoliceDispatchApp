@@ -58,7 +58,7 @@ public class TestVehicleDAO {
 		
 		assertEquals("Failure deleting vehicle", 1, dao.deleteVehicle("ABC1234"));
 		
-		assertNull("Dispatcher was not deleted successfully", dao.getVehicle("ABC1234"));
+		assertNull("Vehicle was not deleted successfully", dao.getVehicle("ABC1234"));
 	}
 
 }
