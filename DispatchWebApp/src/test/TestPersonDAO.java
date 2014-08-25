@@ -28,7 +28,7 @@ public class TestPersonDAO {
 		assertEquals("Returned incorrect last name", "Person", p.getLastName());
 		assertEquals("Returned incorrect phone number", "123-456-7890", p.getPhoneNumber());
 		
-		person.setFirstName("Another");;
+		person.setFirstName("Another");
 		person.setLastName("Subject");
 		person.setPhoneNumber("098-765-4321");
 		
