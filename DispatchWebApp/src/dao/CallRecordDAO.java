@@ -14,7 +14,7 @@ public class CallRecordDAO extends BaseDAO {
 				+ "call_shift, time_received, time_dispatched, time_arrived, time_cleared, "
 				+ "complaint_type, caller, location, dispatcher, result, "
 				+ "incident_number, traffic_stop, incident) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			Connection con = getConnection();
@@ -61,6 +61,7 @@ public class CallRecordDAO extends BaseDAO {
 
             while (rs.next()) {
             	call = new CallRecord();
+            	call.setCallRecordId(rs.getInt("call_record_id"));
             	call.setMannerReceived(rs.getInt("manner_received"));
             	call.setCallDate(rs.getDate("call_date").toString());
             	call.setCallShift(rs.getInt("call_shift"));
@@ -104,6 +105,7 @@ public class CallRecordDAO extends BaseDAO {
 
             while (rs.next()) {
             	call = new CallRecord();
+            	call.setCallRecordId(rs.getInt("call_record_id"));
             	call.setMannerReceived(rs.getInt("manner_received"));
             	call.setCallDate(rs.getDate("call_date").toString());
             	call.setCallShift(rs.getInt("call_shift"));
