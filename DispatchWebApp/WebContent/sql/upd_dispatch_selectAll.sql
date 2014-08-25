@@ -21,3 +21,5 @@ SELECT * FROM `upd_dispatch`.`shift`;
 SELECT * FROM `upd_dispatch`.`traffic_stop`;
 
 SELECT * FROM `upd_dispatch`.`vehicle`;
+
+SELECT * FROM `upd_dispatch`.`call_officers`;

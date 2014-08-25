@@ -17,6 +17,8 @@ public class CallRecord {
 	private String dispatcher;
 	private int result;
 	private String incidentNumber;
+	private int isTrafficStop;
+	private int isIncident;
 	
 	private ArrayList<String> notes;
 	private ArrayList<String> officers;
@@ -116,5 +118,17 @@ public class CallRecord {
 	}
 	public void setOfficers(ArrayList<String> officers) {
 		this.officers = officers;
+	}
+	public int getIsIncident() {
+		return isIncident;
+	}
+	public void setIsIncident(int isIncident) {
+		this.isIncident = isIncident;
+	}
+	public int getIsTrafficStop() {
+		return isTrafficStop;
+	}
+	public void setIsTrafficStop(int isTrafficStop) {
+		this.isTrafficStop = isTrafficStop;
 	}
 }
