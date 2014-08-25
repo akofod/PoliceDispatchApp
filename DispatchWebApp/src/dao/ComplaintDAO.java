@@ -130,7 +130,8 @@ public class ComplaintDAO extends BaseDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, complaint.getComplaint());
 			ps.setString(2, complaint.getCode());
-			ps.setInt(3, complaintId);
+			ps.setInt(3, complaint.getNumberOccurences());
+			ps.setInt(4, complaintId);
 			
 			ps.executeUpdate();
 			
