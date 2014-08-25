@@ -46,6 +46,7 @@ public class NotesDAO extends BaseDAO {
 
             while (rs.next()) {
             	note = new Notes();
+            	note.setNoteId(rs.getInt("note_id"));
             	note.setCallRecord(rs.getInt("call_record"));;
             	note.setNote(rs.getString("note"));
             }
