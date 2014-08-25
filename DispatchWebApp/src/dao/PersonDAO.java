@@ -98,7 +98,7 @@ public class PersonDAO extends BaseDAO {
 	public int updatePerson(int personId, Person person) {
 		
 		String sql = "UPDATE upd_dispatch.person SET first_name = ?, last_name = ?,"
-				+ " phone_number = ? WHERE personId = ?";
+				+ " phone_number = ? WHERE person_id = ?";
 		
 		try {
 			Connection con = getConnection();
