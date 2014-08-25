@@ -1,13 +1,12 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import model.Result;
-import model.Vehicle;
 
 import org.junit.Test;
 
 import dao.ResultDAO;
-import dao.VehicleDAO;
 
 public class TestResultDAO {
 
