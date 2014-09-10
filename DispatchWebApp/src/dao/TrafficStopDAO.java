@@ -11,8 +11,8 @@ public class TrafficStopDAO extends BaseDAO {
 	public int addTrafficStop(TrafficStop trafficStop) {
 		
 		String sql = "INSERT INTO upd_dispatch.traffic_stop"
-                + "(vehicle, operator, call_record_id) VALUES"
-                + "(?, ?, ?)";
+                + "(vehicle, operator, call_record_id, citationNumber, offense) VALUES"
+                + "(?, ?, ?, ?, ?)";
 		
 		try {
 			Connection con = getConnection();
@@ -21,6 +21,8 @@ public class TrafficStopDAO extends BaseDAO {
 			ps.setString(1, trafficStop.getVehicle());
 			ps.setInt(2, trafficStop.getOperator());
 			ps.setInt(3, trafficStop.getCallRecordId());
+			ps.setString(4, trafficStop.getCitationNumber());
+			ps.setString(5, trafficStop.getOffense());
 			
 			ps.executeUpdate();
 			ps.close();
@@ -51,6 +53,8 @@ public class TrafficStopDAO extends BaseDAO {
             	ts.setOperator(rs.getInt("operator"));
             	ts.setVehicle(rs.getString("vehicle"));
             	ts.setCallRecordId(rs.getInt("call_record_id"));
+            	ts.setCitationNumber(rs.getString("citation_number"));
+            	ts.setOffense(rs.getString("offense"));
             }
             rs.close();
             ps.close();
@@ -66,14 +70,17 @@ public class TrafficStopDAO extends BaseDAO {
 	
 	public int updateVehicle(int callRecordId, TrafficStop ts) {
 		
-		String sql = "UPDATE upd_dispatch.traffic_stop SET vehicle = ?, operator = ? WHERE call_record_id = ?";
+		String sql = "UPDATE upd_dispatch.traffic_stop SET vehicle = ?, "
+				+ "operator = ?, citation_number = ?, offense = ? WHERE call_record_id = ?";
 		
 		try {
 			Connection con = getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, ts.getVehicle());
 			ps.setInt(2, ts.getOperator());
-			ps.setInt(3, callRecordId);
+			ps.setString(3, ts.getCitationNumber());
+			ps.setString(4, ts.getOffense());
+			ps.setInt(5, callRecordId);
 			
 			ps.executeUpdate();
 			

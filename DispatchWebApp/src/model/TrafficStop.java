@@ -6,6 +6,8 @@ public class TrafficStop {
 	private String vehicle; //Index from vehicle table
 	private int operator; //Index from person table
 	private int callRecordId; //Index from call_record table
+	private String citationNumber;
+	private String offense;
 	
 	public int getTrafficStopId() {
 		return trafficStopId;
@@ -30,5 +32,17 @@ public class TrafficStop {
 	}
 	public void setCallRecordId(int callRecordId) {
 		this.callRecordId = callRecordId;
+	}
+	public String getCitationNumber() {
+		return citationNumber;
+	}
+	public void setCitationNumber(String citationNumber) {
+		this.citationNumber = citationNumber;
+	}
+	public String getOffense() {
+		return offense;
+	}
+	public void setOffense(String offense) {
+		this.offense = offense;
 	}
 }
